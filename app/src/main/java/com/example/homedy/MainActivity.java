@@ -1,21 +1,38 @@
 package com.example.homedy;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.example.homedy.Account.Account;
+import com.example.homedy.Account.AccountFragment;
+import com.example.homedy.Account.LoginFragment;
 import com.example.homedy.Home.HomeFragment;
 
-public class MainActivity extends AppCompatActivity implements HomeFragment.OnHomeFragmentListener{
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnHomeFragmentListener, LoginFragment.OnLoginFragmentListener, AccountFragment.OnAccountFragmentListener {
+    private HomeFragment homeFragment = HomeFragment.newInstance(1);
+    private LoginFragment loginFragment = LoginFragment.newInstance(false);
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+            switch (menuItem.getItemId()){
+                case R.id.navigation_home:
+                    loadFragment(R.id.frame_layout, homeFragment);
+                    return true;
+                case R.id.navigation_account:
+                    loadFragment(R.id.frame_layout, loginFragment);
+                    return true;
+            }
+
             return false;
         }
     };
@@ -27,13 +44,15 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        loadFragment(R.id.frame_layout, homeFragment);
 
-        HomeFragment fragment = HomeFragment.newInstance(1);
+    }
+
+    public void loadFragment(int i, Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.frame_layout, fragment);
+        fragmentTransaction.replace(i, fragment);
         fragmentTransaction.commit();
-
     }
 
     @Override
@@ -44,5 +63,15 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+    }
+
+    @Override
+    public void onLoginFragmentListenre(Uri uri) {
+
+    }
+
+    @Override
+    public void onAccountFragmentListener(Uri uri) {
+
     }
 }
