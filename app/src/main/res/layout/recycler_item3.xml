@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="140dp">
+
+    <ImageView
+        android:id="@+id/img_rent_house"
+        android:layout_width="160dp"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView android:id="@+id/price_rent_house"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="799 trieu"
+        app:layout_constraintLeft_toLeftOf="@id/img_rent_house"
+        app:layout_constraintTop_toTopOf="@id/img_rent_house"
+        />
+    <TextView
+        android:id="@+id/location_rent_house"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/img_rent_house"
+        app:layout_constraintLeft_toLeftOf="@id/img_rent_house"
+        android:text="0,8km"
+        />
+    <TextView
+        android:id="@+id/time_rent_house"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/img_rent_house"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="11 ngày trước"
+        />
+    <TextView
+        android:id="@+id/name_rent_house"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/img_rent_house"
+        app:layout_constraintTop_toBottomOf="@id/time_rent_house"
+        android:text="Cho thuê phòng cao cấp ở trung tâm"
+        />
+    <TextView
+        android:id="@+id/address_rent_house"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/img_rent_house"
+        app:layout_constraintTop_toBottomOf="@+id/name_rent_house"
+        android:text="Nguyễn Văn Thù, Đa Cao, Quận 1, Thành phố Hồ Chí Minh"
+        />
+
+
+</android.support.constraint.ConstraintLayout>

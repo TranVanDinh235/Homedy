@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Post">
+    <Button
+        android:id="@+id/btn_newpost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New post"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_publish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dang dang"
+        app:layout_constraintTop_toBottomOf="@id/btn_newpost"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <TextView
+        android:id="@+id/txt_num_publish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13"
+        app:layout_constraintTop_toTopOf="@id/txt_publish"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txt_draft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_publish"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Ban nhap"/>
+
+    <TextView
+        android:id="@+id/txt_num_draft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13"
+        app:layout_constraintTop_toTopOf="@id/txt_draft"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txt_wait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_draft"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Cho duyet"/>
+
+    <TextView
+        android:id="@+id/txt_num_wait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13"
+        app:layout_constraintTop_toTopOf="@id/txt_wait"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txt_expired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_wait"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Het han"/>
+
+    <TextView
+        android:id="@+id/txt_num_expired"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13"
+        app:layout_constraintTop_toTopOf="@id/txt_expired"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/txt_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_expired"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Tra lai"/>
+
+    <TextView
+        android:id="@+id/txt_num_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="13"
+        app:layout_constraintTop_toTopOf="@id/txt_return"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+</android.support.constraint.ConstraintLayout>
