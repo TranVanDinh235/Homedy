@@ -15,10 +15,12 @@ import com.example.homedy.Account.Account;
 import com.example.homedy.Account.AccountFragment;
 import com.example.homedy.Account.LoginFragment;
 import com.example.homedy.Home.HomeFragment;
+import com.example.homedy.NewPost.PostFragment;
 
-public class MainActivity extends AppCompatActivity implements HomeFragment.OnHomeFragmentListener, LoginFragment.OnLoginFragmentListener, AccountFragment.OnAccountFragmentListener {
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnHomeFragmentListener, LoginFragment.OnLoginFragmentListener, AccountFragment.OnAccountFragmentListener, PostFragment.OnPostFragmentListener {
     private HomeFragment homeFragment = HomeFragment.newInstance(1);
     private LoginFragment loginFragment = LoginFragment.newInstance(false);
+    private PostFragment postFragment = PostFragment.newInstance(3);
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
                     return true;
                 case R.id.navigation_account:
                     loadFragment(R.id.frame_layout, loginFragment);
+                    return true;
+                case R.id.navigation_post:
+                    loadFragment(R.id.frame_layout, postFragment);
                     return true;
             }
 
