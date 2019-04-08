@@ -74,7 +74,7 @@ public class PostFragment extends Fragment {
         _newPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),NewPostActivity.class );
+                Intent intent = new Intent(getActivity(),NewPost1Activity.class );
                 getActivity().startActivityForResult(intent, REQUEST_POST);
             }
         });

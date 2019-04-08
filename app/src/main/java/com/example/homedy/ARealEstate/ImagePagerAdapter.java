@@ -9,6 +9,8 @@ public class ImagePagerAdapter extends FragmentPagerAdapter {
     public ImagePagerAdapter(FragmentManager fm){
         super(fm);
     }
+
+
     @Override
     public Fragment getItem(int i) {
         return PlaceHolderFragment.newInstance(i + 1);

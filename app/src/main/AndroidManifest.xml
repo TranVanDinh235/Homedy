@@ -14,9 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewPost.NewPostActivity">
-
-        </activity>
+        <activity android:name=".NewPost.NewPost1Activity"></activity>
         <activity android:name=".Account.SignupActivity" />
         <activity
             android:name=".ARealEstate.ARealEstateActivity"

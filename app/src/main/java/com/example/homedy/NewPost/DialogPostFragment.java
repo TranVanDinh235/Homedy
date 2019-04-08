@@ -29,8 +29,7 @@ public class DialogPostFragment extends DialogFragment {
     String[] strings = {"Ha Noi", "Hai Phong", "Da Nang", "Ho Chi Minh"};
 
     public interface DialogPostFragmetListener{
-        public void onDialogPositiveClick(DialogFragment dialog);
-        public void onDialogNegativeClick(DialogFragment dialog);
+        public abstract void setDataFromFragment(String data);
     }
 
     DialogPostFragmetListener mListenter;
@@ -53,10 +52,7 @@ public class DialogPostFragment extends DialogFragment {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent i = new Intent()
-                                .putExtra("result", strings[_numberPicker.getValue()]);
-                        getTargetFragment().onActivityResult(getTargetRequestCode(), Activity.RESULT_OK, i);
-                        dismiss();
+                        mListenter.setDataFromFragment(strings[_numberPicker.getValue()]);
                     }
                 })
                 .setNegativeButton("Huỷ", new DialogInterface.OnClickListener() {
@@ -68,4 +64,13 @@ public class DialogPostFragment extends DialogFragment {
         return builder.create();
     }
 
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof DialogPostFragment.DialogPostFragmetListener) {
+            mListenter = (DialogPostFragment.DialogPostFragmetListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement DialogPostFragmentListener");
+        }
+    }
 }
