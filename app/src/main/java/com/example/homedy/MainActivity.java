@@ -10,17 +10,20 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.SearchEvent;
 
 import com.example.homedy.Account.Account;
 import com.example.homedy.Account.AccountFragment;
 import com.example.homedy.Account.LoginFragment;
 import com.example.homedy.Home.HomeFragment;
 import com.example.homedy.NewPost.PostFragment;
+import com.example.homedy.Search.SearchFragment;
 
-public class MainActivity extends AppCompatActivity implements HomeFragment.OnHomeFragmentListener, LoginFragment.OnLoginFragmentListener, AccountFragment.OnAccountFragmentListener, PostFragment.OnPostFragmentListener {
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnHomeFragmentListener, LoginFragment.OnLoginFragmentListener, AccountFragment.OnAccountFragmentListener, PostFragment.OnPostFragmentListener, SearchFragment.OnFragmentInteractionListener{
     private HomeFragment homeFragment = HomeFragment.newInstance(1);
     private LoginFragment loginFragment = LoginFragment.newInstance(false);
     private PostFragment postFragment = PostFragment.newInstance(3);
+    private SearchFragment searchFragment = SearchFragment.newInstance(null, null);
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
                     return true;
                 case R.id.navigation_post:
                     loadFragment(R.id.frame_layout, postFragment);
+                    return true;
+                case R.id.navigation_search:
+                    loadFragment(R.id.frame_layout, searchFragment);
                     return true;
             }
 
@@ -77,6 +83,11 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
 
     @Override
     public void onAccountFragmentListener(Uri uri) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.homedy.Home.Purchase.Purchase;
 import com.example.homedy.R;
 
 import java.util.List;

@@ -32,6 +32,7 @@ public class Purchase extends RealEstate {
     public void setTime(int time) {
         this.time = time;
     }
+
     public static List<Purchase> getPurchases(){
         List<Purchase> purchases = new ArrayList<>();
         for(int i = 0; i < names.length; i ++){

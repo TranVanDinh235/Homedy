@@ -1,43 +1,50 @@
-package com.example.homedy.NewPost;
+package com.example.homedy.Search;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.homedy.Home.Purchase.Purchase;
+import com.example.homedy.Home.RentHouse.RentHouse;
+import com.example.homedy.Home.RentHouse.RentHouseAdapter;
 import com.example.homedy.R;
+
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link PostFragment} interface
+ * {@link SearchFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link PostFragment#newInstance} factory method to
+ * Use the {@link SearchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PostFragment extends Fragment {
-    private static final int REQUEST_POST = 0;
-
+public class SearchFragment extends Fragment {
+    @InjectView(R.id.btn_search_fillter) Button _filterButton;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String KEY_TAG = "key_tag";
-
-    @InjectView(R.id.btn_newpost) Button _newPostButton;
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
-    private int keyTag;
+    private String mParam1;
+    private String mParam2;
 
-    private OnPostFragmentListener mListener;
+    private OnFragmentInteractionListener mListener;
 
-    public PostFragment() {
+    public SearchFragment() {
         // Required empty public constructor
     }
 
@@ -45,13 +52,16 @@ public class PostFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @return A new instance of fragment PostFragment.
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment SearchFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PostFragment newInstance(int tag) {
-        PostFragment fragment = new PostFragment();
+    public static SearchFragment newInstance(String param1, String param2) {
+        SearchFragment fragment = new SearchFragment();
         Bundle args = new Bundle();
-        args.putInt(KEY_TAG, tag);
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -60,41 +70,43 @@ public class PostFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            keyTag = getArguments().getInt(KEY_TAG);
-
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_post, container, false);
-        ButterKnife.inject(this,view);
-
-        _newPostButton.setOnClickListener(new View.OnClickListener() {
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_search);
+        RentHouseAdapter rentHouseAdapter = new RentHouseAdapter( RentHouse.getRenHouses());
+        recyclerView.setAdapter(rentHouseAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
+        ButterKnife.inject(this, view);
+        _filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),NewPost1Activity.class );
-                getActivity().startActivityForResult(intent, REQUEST_POST);
+                Intent intent = new Intent(getActivity(), FilterActivity.class);
+                getActivity().startActivityForResult(intent,1);
             }
         });
-
         return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(String uri) {
+    public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onItemPressed(uri);
+            mListener.onFragmentInteraction(uri);
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnPostFragmentListener) {
-            mListener = (OnPostFragmentListener) context;
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -117,8 +129,8 @@ public class PostFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnPostFragmentListener {
+    public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onItemPressed(String content);
+        void onFragmentInteraction(Uri uri);
     }
 }

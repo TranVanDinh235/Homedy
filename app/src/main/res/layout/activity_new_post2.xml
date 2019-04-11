@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewPost.NewPost2Activity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TableLayout
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:shrinkColumns="0"
+            >
+            <com.kofigyan.stateprogressbar.StateProgressBar
+                android:id="@+id/state_progressbar_2"
+                app:spb_maxStateNumber="two"
+                app:spb_currentStateNumber="two"
+                app:layout_constraintTop_toBottomOf="parent"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"/>
+            <TextView
+                android:layout_width="100dp"
+                android:id="@+id/txt_newpost2_title"
+                android:text="Thông tin cơ bản"
+                android:textSize="24dip"
+                android:textColor="@color/blue"/>
+            <TextView
+                android:id="@+id/txt_newpost2_subtitle"
+                android:text="Nhập các thông tin dưới đây"
+                />
+
+            <TableRow>
+                <TextView android:text="Loại tin" />
+                <Button android:text="Bán" />
+                <Button android:text="Cho Thuê" />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="Loai BDS:" />
+                <Button android:text="Căn hộ"/>
+                <Button android:text="Căn hộ giá rẻ"/>
+            </TableRow>
+            <TextView
+                android:text="Tiêu đề"/>
+            <EditText/>
+            <TableRow>
+                <TextView
+                    android:text="Diện tích"/>
+                <EditText />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:text="Giá"/>
+                <EditText />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="Đơn vị"/>
+                <EditText />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="Số phòng ngủ"/>
+                <EditText />
+            </TableRow>
+            <TableRow>
+                <TextView android:text="Số phòng tắm"/>
+                <EditText />
+            </TableRow>
+            <TextView android:text="Mô tả"/>
+            <EditText />
+            <TextView android:text="Hình ảnh"/>
+            <Button
+                android:id="@+id/btn_add_image"
+                android:textAllCaps="false"
+                android:text="Thêm hình ảnh"
+                android:textColor="@color/red"
+                android:background="@drawable/btn_newpost_background"
+                />
+            <TextView android:text="Chọn tiện nghi"
+                android:layout_marginTop="30dp"
+                android:textSize="24dip"
+                android:textColor="@color/blue"
+                />
+            <TextView android:text="Các tiện nghi của tên đăng"
+                android:layout_marginBottom="20dp"/>
+
+            <TableRow android:layout_gravity="center"
+                android:gravity="center_horizontal">
+                <Button android:id="@+id/btn_icon_aircondition"
+                    android:drawableTop="@drawable/ic_aircondition"
+                    android:textAllCaps="false"
+                    android:background="@drawable/btn_background_icon"
+                    android:text="Điều hoà"/>
+                <Button android:id="@+id/btn_icon_binhnonglanh"
+                    android:drawableTop="@drawable/ic_iconbinhnonglanh"
+                    android:textAllCaps="false"
+                    android:text="Bình nóng"
+                    android:background="@drawable/btn_background_icon"/>
+                <Button android:id="@+id/btn_icon_internet"
+                    android:drawableTop="@drawable/ic_wifi_black_24dp"
+                    android:textAllCaps="false"
+                    android:text="Internet"
+                    android:background="@drawable/btn_background_icon"/>
+            </TableRow>
+            <TableRow android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="20dp">
+                <Button android:id="@+id/btn_icon_television"
+                    android:drawableTop="@drawable/ic_icontv"
+                    android:textAllCaps="false"
+                    android:background="@drawable/btn_background_icon"
+                    android:text="Truyền hình"/>
+                <Button android:id="@+id/btn_icon_bepgas"
+                    android:drawableTop="@drawable/ic_bep_gas"
+                    android:textAllCaps="false"
+                    android:background="@drawable/btn_background_icon"
+                    android:text="Bếp gas"/>
+                <Button android:id="@+id/btn_icon_alarm"
+                    android:drawableTop="@drawable/ic_iconalarm"
+                    android:textAllCaps="false"
+                    android:background="@drawable/btn_background_icon"
+                    android:text="Thiết bị báo"/>
+            </TableRow>
+            <TableRow android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="50dp">
+                <Button
+                    android:id="@+id/btn_post_delete"
+                    android:textAllCaps="false"
+                    android:background="@drawable/btn_color_red"
+                    android:layout_marginRight="30dp"
+                    android:text="Huỷ"/>
+                <Button
+                    android:textAllCaps="false"
+                    android:id="@+id/btn_post_next"
+                    android:background="@drawable/btn_color_blue"
+                    android:text="Đăng"/>
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
