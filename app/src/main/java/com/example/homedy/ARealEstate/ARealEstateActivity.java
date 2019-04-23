@@ -14,12 +14,14 @@ public class ARealEstateActivity extends AppCompatActivity {
 
     private ImagePagerAdapter imagePagerAdapter;
     private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_areal_estate);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
 
 

@@ -12,12 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.homedy.Home.Purchase.Purchase;
-import com.example.homedy.Home.RentHouse.RentHouse;
-import com.example.homedy.Home.RentHouse.RentHouseAdapter;
+import com.example.homedy.Home.RecyclerViewHomeAdapter;
 import com.example.homedy.R;
-
-import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -81,8 +77,8 @@ public class SearchFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.rv_search);
-        RentHouseAdapter rentHouseAdapter = new RentHouseAdapter( RentHouse.getRenHouses());
-        recyclerView.setAdapter(rentHouseAdapter);
+        RecyclerViewHomeAdapter recyclerViewHomeAdapter = new RecyclerViewHomeAdapter();
+        recyclerView.setAdapter(recyclerViewHomeAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext()));
         ButterKnife.inject(this, view);
         _filterButton.setOnClickListener(new View.OnClickListener() {

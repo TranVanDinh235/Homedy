@@ -1,35 +1,35 @@
-package com.example.homedy.NewPost;
+package com.example.homedy.Post;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.NumberPicker;
 
+import com.example.homedy.Address;
 import com.example.homedy.R;
-
-import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 public class DialogPostFragment extends DialogFragment {
 
+    private static final String DATA = "data";
+    private static final String BUTTON_ID = "id";
 
     @InjectView(R.id.numberpicker) NumberPicker _numberPicker;
-    String[] strings = {"Ha Noi", "Hai Phong", "Da Nang", "Ho Chi Minh"};
+
+    private String[] strings = Address.citys;
+    private int id;
 
     public interface DialogPostFragmetListener{
-        public abstract void setDataFromFragment(String data);
+        public abstract void setDataFromFragment(String data, int button_id);
     }
 
     DialogPostFragmetListener mListenter;
@@ -40,6 +40,15 @@ public class DialogPostFragment extends DialogFragment {
         numberPicker.setDisplayedValues(data);
     }
 
+    public static DialogPostFragment newInstance(String[] data, int id){
+        DialogPostFragment fragment = new DialogPostFragment();
+        Bundle args = new Bundle();
+        args.putStringArray(DATA, data);
+        args.putInt(BUTTON_ID, id);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -47,12 +56,16 @@ public class DialogPostFragment extends DialogFragment {
         LayoutInflater inflater = requireActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.fragment_dialog, null);
         ButterKnife.inject(this, view);
+        if (getArguments() != null) {
+            strings = getArguments().getStringArray(DATA);
+            id = getArguments().getInt(BUTTON_ID);
+        }
         setNumberPickerData(strings,_numberPicker);
         builder.setView(view)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        mListenter.setDataFromFragment(strings[_numberPicker.getValue()]);
+                        mListenter.setDataFromFragment(strings[_numberPicker.getValue()], id);
                     }
                 })
                 .setNegativeButton("Huỷ", new DialogInterface.OnClickListener() {

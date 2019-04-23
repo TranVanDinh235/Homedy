@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp">
+
+        <ImageView
+            android:id="@+id/imv_post_image"
+            android:layout_width="130dp"
+            android:layout_height="120dp"
+            app:layout_constraintEnd_toStartOf="@+id/txt_home_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/txt_post_rent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="16dip"
+            android:textStyle="bold"
+            android:text="24 trieu/ thang"/>
+
+        <TextView
+            android:id="@+id/txt_post_title"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:maxLines="2"
+            android:text="Chinh chu cho thue nha rieng cap 4, dien tich 52 m2"
+            android:textColor="@color/blue"
+            android:textSize="18dip"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/imv_post_image"
+            app:layout_constraintTop_toBottomOf="@id/txt_post_rent" />
+        <TextView
+            android:id="@+id/txt_post_address"
+            android:layout_width="200dp"
+            android:maxLines="2"
+            android:layout_height="wrap_content"
+            android:text="ngo 20, Ho tung mau"
+            app:layout_constraintTop_toBottomOf="@id/txt_post_title"
+            app:layout_constraintStart_toStartOf="@id/txt_post_title"/>
+        <TextView
+            android:id="@+id/txt_post_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dang 20 phut truoc"
+            app:layout_constraintStart_toStartOf="@id/txt_post_title"
+            app:layout_constraintBottom_toBottomOf="@id/imv_post_image"
+            />
+        <TextView
+            android:id="@+id/txt_post_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25 m2"
+            android:textStyle="bold"
+            android:textSize="14dip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <ImageButton
+            android:id="@+id/btn_post_modify"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_mode_edit_black_24dp"
+            android:background="@drawable/btn_background_icon"
+            app:layout_constraintEnd_toStartOf="@id/btn_post_share"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <ImageButton
+            android:id="@+id/btn_post_share"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_share_black_24dp"
+            android:background="@drawable/btn_background_icon"
+            app:layout_constraintEnd_toStartOf="@id/btn_post_delete"
+            app:layout_constraintBottom_toBottomOf="@id/btn_post_delete"
+            />
+        <ImageButton
+            android:id="@+id/btn_post_delete"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imv_post_image"
+            android:background="@drawable/btn_background_icon"
+
+            />
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>

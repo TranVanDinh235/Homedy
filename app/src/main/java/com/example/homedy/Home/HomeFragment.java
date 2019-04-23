@@ -1,7 +1,6 @@
 package com.example.homedy.Home;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,13 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.homedy.Home.Purchase.Purchase;
-import com.example.homedy.Home.Purchase.PurchaseAdapter;
-import com.example.homedy.Home.RealEstate.RealEstate;
-import com.example.homedy.Home.RealEstate.RealEstateAdapter;
 import com.example.homedy.R;
-
-import java.util.zip.Inflater;
 
 
 /**
@@ -70,15 +63,10 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        RecyclerView rvRealEstates = (RecyclerView) view.findViewById(R.id.realestate);
-        RealEstateAdapter realEstateAdapter = new RealEstateAdapter(RealEstate.getRealEstates(),context);
-        rvRealEstates.setAdapter(realEstateAdapter);
-        rvRealEstates.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-
-        RecyclerView rvPurchase = (RecyclerView) view.findViewById(R.id.purchase);
-        PurchaseAdapter purchaseAdapter = new PurchaseAdapter(Purchase.getPurchases());
-        rvPurchase.setAdapter(purchaseAdapter);
-        rvPurchase.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false));
+        RecyclerView rvHomeItem = (RecyclerView) view.findViewById(R.id.rv_home);
+        RecyclerViewHomeAdapter recyclerViewHomeAdapter = new RecyclerViewHomeAdapter();
+        rvHomeItem.setAdapter(recyclerViewHomeAdapter);
+        rvHomeItem.setLayoutManager(new LinearLayoutManager(context));
         return view;
     }
 

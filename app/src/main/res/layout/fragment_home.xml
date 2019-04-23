@@ -8,50 +8,12 @@
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_home"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/realestate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mua Bán"
-                android:textSize="32dp"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Những tin đang hot trên Myapp"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/purchase"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cho Thuê"
-                android:textSize="32dp"/>
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="32dp"
-                android:text="Tin Tức"/>
-            <GridView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></GridView>
-            <TextView
-                android:text="Với cách hiển thị Fragment theo kiểu tĩnh. Nghe qua cái tên bạn đã thấy có gì đó mang ý nghĩa cố định rồi. Cố định ở đây có nghĩa là bạn phải chỉ định trước các Fragment cần hiển thị lên màn hình. Khi ứng dụng thực thi, sẽ không có chuyện từ một vùng màn hình đang hiển thị Fragment A, có thể được thay thế nó bởi Fragment B hay bất kỳ Fragment nào khác. Sự linh động của các Fragment đối với cách hiển thị như thế này không cao. Thường thì nếu bạn biết được Activity đó cần hiển thị những Fragment nào và ở vị trí nào, khi đó bạn có thể định nghĩa tĩnh các Fragment như này. Cách hiển thị này có ưu điểm là giúp bạn thiết kế ra các ứng dụng rất nhanh, vì không cần quá nhiều các dòng code. Chắc chắn bạn sẽ được làm quen với cách thức hiển thị Fragment theo kiểu này ở mục bên dưới."
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            ></android.support.v7.widget.RecyclerView>
     </ScrollView>
-
 </FrameLayout>

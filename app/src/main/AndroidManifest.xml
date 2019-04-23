@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,9 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Search.FilterActivity"></activity>
-        <activity android:name=".NewPost.NewPost2Activity" />
-        <activity android:name=".NewPost.NewPost1Activity" />
+        <activity
+            android:name=".Post.NewPostActivity"
+            android:label="@string/title_activity_new_post"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".Search.FilterActivity" />
         <activity android:name=".Account.SignupActivity" />
         <activity
             android:name=".ARealEstate.ARealEstateActivity"

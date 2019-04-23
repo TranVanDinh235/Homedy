@@ -15,7 +15,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp">
             <android.support.v4.view.ViewPager
                 android:id="@+id/vp_image"
                 android:layout_width="match_parent"
@@ -33,7 +34,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cho Thuê phòng trọ cao cấp ở trung tâm quận 1"
-                android:textSize="32dp"/>
+                android:textSize="24dip"
+                android:textColor="@color/blue"/>
             <TextView
                 android:id="@+id/tv_address_are"
                 android:layout_width="match_parent"
