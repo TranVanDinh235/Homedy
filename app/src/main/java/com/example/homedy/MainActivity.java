@@ -9,13 +9,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.homedy.Account.AccountFragment;
 import com.example.homedy.Account.LoginFragment;
 import com.example.homedy.Home.HomeFragment;
 import com.example.homedy.Post.PostFragment;
 import com.example.homedy.Search.SearchFragment;
+
+import java.net.URISyntaxException;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.OnHomeFragmentListener, LoginFragment.OnLoginFragmentListener, AccountFragment.OnAccountFragmentListener, PostFragment.OnPostFragmentListener, SearchFragment.OnFragmentInteractionListener{
     private HomeFragment homeFragment = HomeFragment.newInstance(1);
@@ -54,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnHo
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(R.id.frame_layout, homeFragment);
+
+
 
     }
 

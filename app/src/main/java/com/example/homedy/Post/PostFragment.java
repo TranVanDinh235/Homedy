@@ -23,7 +23,7 @@ import android.widget.Toast;
 import com.example.homedy.Home.HomeItem;
 import com.example.homedy.R;
 
-import java.net.Socket;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;
@@ -45,7 +45,6 @@ public class PostFragment extends Fragment {
 
     private ArrayList<HomeItem> homeItems1 = HomeItem.getExameHome();
 
-    Socket mSocket;
 
 
 

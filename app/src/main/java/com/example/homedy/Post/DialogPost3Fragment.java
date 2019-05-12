@@ -42,7 +42,7 @@ public class DialogPost3Fragment extends DialogFragment {
         _canhoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.setDataFromFragment("Can ho");
+                mListener.setDataFromFragment("Căn hộ");
                 dismiss();
             }
         });
@@ -50,7 +50,7 @@ public class DialogPost3Fragment extends DialogFragment {
         _bietThuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.setDataFromFragment("Biet thu");
+                mListener.setDataFromFragment("Biệt thự");
                 dismiss();
             }
         });
@@ -58,7 +58,7 @@ public class DialogPost3Fragment extends DialogFragment {
         _canhoMiniButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.setDataFromFragment("Can ho Mini");
+                mListener.setDataFromFragment("Căn hộ Mini");
                 dismiss();
             }
         });
@@ -66,7 +66,7 @@ public class DialogPost3Fragment extends DialogFragment {
         _nhaNguyenCanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.setDataFromFragment("Nha nguyen can");
+                mListener.setDataFromFragment("Nhà nguyên căn");
                 dismiss();
             }
         });
@@ -74,7 +74,7 @@ public class DialogPost3Fragment extends DialogFragment {
         _phongtroButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.setDataFromFragment("Phong tro");
+                mListener.setDataFromFragment("Phòng trọ");
                 dismiss();
             }
         });

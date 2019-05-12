@@ -27,10 +27,21 @@ public class DialogPost2Fragment extends DialogFragment {
     private static final int REQUEST_ID_IMAGE_CAPTURE = 100;
     private static final int REQUEST_ID_READ_WRITE_PERMISSION = 99;
     private static final int GALLERY_REQUEST_CODE = 98;
+    private static final int REQUEST_ID_AVATAR_IMAGE_CAPTURE = 101;
+    private static final int AVATAR_GALLERY_REQUEST_CODE = 102;
+    private static final String KEY_TAB = "key_tab";
+
 
     @InjectView(R.id.btn_dialog_camera) Button _cammeraDialogButton;
     @InjectView(R.id.btn_dialog_fileimage) Button _imageFileDialogButton;
 
+    public static DialogPost2Fragment newInstance(int buttonId) {
+        Bundle args = new Bundle();
+        args.putInt(KEY_TAB, buttonId);
+        DialogPost2Fragment fragment = new DialogPost2Fragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @NonNull
     @Override
@@ -45,7 +56,12 @@ public class DialogPost2Fragment extends DialogFragment {
         _cammeraDialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                captureImage();
+                if(getArguments().getInt(KEY_TAB) == 1) {
+                    captureImage(REQUEST_ID_IMAGE_CAPTURE);
+                }
+                if(getArguments().getInt(KEY_TAB) == 2){
+                    captureImage(REQUEST_ID_AVATAR_IMAGE_CAPTURE);
+                }
                 dismiss();
             }
         });
@@ -54,7 +70,12 @@ public class DialogPost2Fragment extends DialogFragment {
         _imageFileDialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pickFromGallery();
+                if(getArguments().getInt(KEY_TAB) == 1) {
+                    pickFromGallery(GALLERY_REQUEST_CODE);
+                }
+                if(getArguments().getInt(KEY_TAB) == 2){
+                    pickFromGallery(AVATAR_GALLERY_REQUEST_CODE);
+                }
                 dismiss();
             }
         });
@@ -62,22 +83,23 @@ public class DialogPost2Fragment extends DialogFragment {
         return builder.create();
     }
 
-    private void captureImage() {
+
+    private void captureImage(int requestCode) {
         askPermission();
         // Tao mot intent khong tuong minh de yeu cau he thong mo camera chuan bi chup hinh
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         // start activity chup hinh va cho doi ket qua tra ve
-        getActivity().startActivityForResult(intent, REQUEST_ID_IMAGE_CAPTURE);
+        getActivity().startActivityForResult(intent, requestCode);
     }
 
-    private void pickFromGallery(){
+    private void pickFromGallery(int requestCode){
         askPermission();
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        getActivity().startActivityForResult(Intent.createChooser(intent,"Select Picture"), GALLERY_REQUEST_CODE);
+        getActivity().startActivityForResult(Intent.createChooser(intent,"Select Picture"), requestCode);
     }
 
     private void askPermission(){
@@ -99,7 +121,7 @@ public class DialogPost2Fragment extends DialogFragment {
             case REQUEST_ID_READ_WRITE_PERMISSION:
                 if (grantResults.length > 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(this.getActivity(), "Permisthion granted", Toast.LENGTH_LONG).show();
-                    this.captureImage();
+                    this.captureImage(requestCode);
                 } else {
                     Toast.makeText(this.getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
                 }
